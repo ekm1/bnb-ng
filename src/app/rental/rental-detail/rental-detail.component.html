@@ -4,7 +4,7 @@
       <div class="col-md-6"><img src="{{ rental.image }}" alt="" /></div>
       <div class="col-md-6">
         <!-- Map Here-->
-        <img src="{{ rental.image }}" alt="" />
+        <bnb-map [location]="rental.city + ',' + rental.street"></bnb-map>
       </div>
     </div>
   </div>
