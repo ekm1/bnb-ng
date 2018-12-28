@@ -6,8 +6,8 @@ class fakeDb {
       {
         title: "Nice view on ocean",
         city: "New York",
-        street: "Main Street",
-        category: "condo",
+        street: "Time Square",
+        category: "small",
         image:
           "https://media.equityapartments.com/images/q_50/f_auto/fl_lossy/2293-3/the-reserve-at-eisenhower-apartments-building",
         bedrooms: 4,
