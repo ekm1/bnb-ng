@@ -14,7 +14,7 @@ mongoose
   )
   .then(() => {
     const FakeDb = new fakeDb();
-    FakeDb.seeDb();
+    // FakeDb.seeDb();
   });
 
 const app = express();
