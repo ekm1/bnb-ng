@@ -95,8 +95,9 @@ exports.authMiddleware = function(req, res, next) {
 
     User.findById(user.userId, function(err, user) {
       if (err) {
-        return res.status(422).send({ errors: normalizedErrors(err.errors) });
+        return res.status(422).send({ errors: normalizeErrors(err.errors) });
       }
+
       if (user) {
         res.locals.user = user;
         next();
@@ -110,9 +111,8 @@ exports.authMiddleware = function(req, res, next) {
 };
 
 function parseToken(token) {
-  return jwt.verify(token.split(" ")[1], config.SECRET);
+  return jwt.verify(token.split("Bearer")[1], config.SECRET);
 }
-
 function notAuthorized(res) {
   return res.status(401).send({
     errors: [
