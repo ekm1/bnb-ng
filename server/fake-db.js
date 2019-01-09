@@ -1,63 +1,17 @@
 const Rental = require("./models/rental");
 const User = require("./models/user");
+const Booking = require("./models/booking");
+const fakeDbData = require("./data.json");
 
 class fakeDb {
   constructor() {
-    this.rentals = [
-      {
-        title: "Nice view on ocean",
-        city: "New York",
-        street: "Time Square",
-        category: "small",
-        image:
-          "https://media.equityapartments.com/images/q_50/f_auto/fl_lossy/2293-3/the-reserve-at-eisenhower-apartments-building",
-        bedrooms: 4,
-        shared: true,
-        description: "Vey nice",
-        dailyRate: 43
-      },
-      {
-        title: "Nice view on ocean",
-        city: "New York",
-        street: "Main Street",
-        category: "condo",
-        image:
-          "https://media.equityapartments.com/images/q_50/f_auto/fl_lossy/2293-3/the-reserve-at-eisenhower-apartments-building",
-        bedrooms: 4,
-        shared: true,
-        description: "Vey nice",
-        dailyRate: 43
-      },
-      {
-        title: "Nice view on ocean",
-        city: "New York",
-        street: "Main Street",
-        category: "condo",
-        image:
-          "https://media.equityapartments.com/images/q_50/f_auto/fl_lossy/2293-3/the-reserve-at-eisenhower-apartments-building",
-        bedrooms: 4,
-        shared: true,
-        description: "Vey nice",
-        dailyRate: 43
-      }
-    ];
-
-    this.users = [
-      {
-        username: "Test User",
-        email: "test@gmail.com",
-        password: "testtest"
-      },
-      {
-        username: "Test User1",
-        email: "test1@gmail.com",
-        password: "testtest1"
-      }
-    ];
+    this.rentals = fakeDbData.rentals;
+    this.users = fakeDbData.users;
   }
   async cleanDb() {
     await User.deleteMany({});
     await Rental.deleteMany({});
+    await Booking.deleteMany({});
   }
 
   pushRentalsToDb() {
