@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const bookingSchema = new Schema({
   startAt: { type: Date, required: "Starting date is required" },
   endAt: { type: Date, required: "Ending date is required" },
-  totalPricE: Number,
+  totalPrice: Number,
   days: Number,
   guests: Number,
   createdAt: { type: Date, default: Date.now },
