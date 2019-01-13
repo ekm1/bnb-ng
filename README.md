@@ -11,15 +11,16 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`.
 Navigate to /server folder run server `node index.js`
 
 ## Features
-*Register
-*Login
-*View Rentals Available
-*Add Rentals
-*Manage Rentals
-*Book Rentals
-*Manage Bookings
-*Delete Rentals
-*Search Rentals by City
+
+* Register
+* Login
+* View Rentals Available
+* Add Rentals
+* Manage Rentals
+* Book Rentals
+* Manage Bookings
+* Delete Rentals
+* Search Rentals by City
 
 ## Code scaffolding
 
