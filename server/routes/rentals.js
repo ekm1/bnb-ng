@@ -41,6 +41,18 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.get("/admin/manage", UserCtrl.adminAuthMiddleware, (req, res) => {
+  Rental.find({})
+    .select("")
+    .exec(function(err, foundRentals) {
+      if (err) {
+        return res.status(422).send({ errors: normalizedErrors(err.errors) });
+      }
+
+      return res.json(foundRentals);
+    });
+});
+
 router.delete("/:id", UserCtrl.authMiddleware, function(req, res) {
   const user = res.locals.user;
 

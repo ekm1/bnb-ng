@@ -109,6 +109,40 @@ exports.authMiddleware = function(req, res, next) {
     return notAuthorized(res);
   }
 };
+exports.adminAuthMiddleware = function(req, res, next) {
+  const token = req.headers.authorization;
+
+  if (token) {
+    const user = parseToken(token);
+
+    User.findById(user.userId, function(err, user) {
+      if (err) {
+        return res.status(422).send({ errors: normalizeErrors(err.errors) });
+      }
+
+      if (user && user.isAdmin) {
+        res.locals.user = user;
+        next();
+      } else {
+        return notAuthorized(res);
+      }
+    });
+  } else {
+    return notAuthorized(res);
+  }
+};
+
+exports.getAllUsers = function(req, res) {
+  User.find({})
+    .select("-bookings -rentals -password -isAdmin  -_id")
+    .exec(function(err, foundUsers) {
+      if (err) {
+        return res.status(422).send({ errors: normalizedErrors(err.errors) });
+      }
+
+      return res.json(foundUsers);
+    });
+};
 
 function parseToken(token) {
   return jwt.verify(token.split("Bearer")[1], config.SECRET);

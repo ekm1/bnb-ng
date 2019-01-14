@@ -88,6 +88,12 @@
       "username": "Test User1",
       "email": "test1@gmail.com",
       "password": "testtest1"
+    },
+    {
+      "username": "Admin",
+      "email": "admin@gmail.com",
+      "password": "adminadmin",
+      "isAdmin": true
     }
   ]
 }
