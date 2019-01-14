@@ -6,4 +6,6 @@ router.post("/auth", User.auth);
 
 router.post("/register", User.register);
 
+router.get("/admin/users", User.adminAuthMiddleware, User.getAllUsers);
+
 module.exports = router;

@@ -73,6 +73,18 @@ exports.getUserBookings = function(req, res) {
     });
 };
 
+exports.getAllBookings = function(req, res) {
+  User.find({})
+    .select("-isAdmin -rentals -email -password -_id")
+    .exec(function(err, foundBookings) {
+      if (err) {
+        return res.status(422).send({ errors: normalizedErrors(err.errors) });
+      }
+
+      return res.json(foundBookings);
+    });
+};
+
 function isvalidBooking(proposedBooking, rental) {
   let isValid = true;
   if (rental.bookings && rental.bookings.length > 0) {

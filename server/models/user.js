@@ -24,6 +24,10 @@ const userSchema = new Schema({
     max: [32, "Too long, max is 32 characters"],
     required: "Password is required"
   },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
   rentals: [{ type: Schema.Types.ObjectId, ref: "Rental" }],
   bookings: [{ type: Schema.Types.ObjectId, ref: "Booking" }]
 });
