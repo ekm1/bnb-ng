@@ -1,7 +1,7 @@
-const Rental = require("./models/rental");
-const User = require("./models/user");
-const Booking = require("./models/booking");
-const fakeDbData = require("./data.json");
+const Rental = require('./models/rental');
+const User = require('./models/user');
+const Booking = require('./models/booking');
+const fakeDbData = require('./data.json');
 
 class fakeDb {
   constructor() {
@@ -17,7 +17,6 @@ class fakeDb {
   pushRentalsToDb() {
     const user = new User(this.users[0]);
     const user2 = new User(this.users[1]);
-    const user2 = new User(this.users[2]);
 
     this.rentals.forEach(rental => {
       const newRental = new Rental(rental);
@@ -27,7 +26,6 @@ class fakeDb {
     });
     user.save();
     user2.save();
-    user3.save();
   }
 
   async seeDb() {

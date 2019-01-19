@@ -92,8 +92,7 @@
     {
       "username": "Admin",
       "email": "admin@gmail.com",
-      "password": "adminadmin",
-      "isAdmin": true
+      "password": "adminadmin"
     }
   ]
 }
